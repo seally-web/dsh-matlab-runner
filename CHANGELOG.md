@@ -2,6 +2,15 @@
 
 ## Unreleased
 
+## 0.2.1 — 2026-10-30
+
+- **External edits flow back into the panel.** The script picker and file tree
+  refresh every few seconds, and an open file reloads automatically when it
+  changed on disk (agent editing it in chat, `git checkout`, MATLAB writing
+  results) — as long as the buffer itself has no unsaved edits.
+- Fixed autosave writing the textarea DOM node instead of the buffer text.
+- Docs: config sample uses portable placeholder paths.
+
 ## 0.2.0 — 2026-10-30
 
 - **Multiple folders**: the tree header has a folder picker plus `＋` to mount any

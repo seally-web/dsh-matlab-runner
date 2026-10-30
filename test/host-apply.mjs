@@ -230,6 +230,19 @@ assert.match(charVar.text, /hi/)
 await fails('GET', '/matlab/api/var?name=1bad', undefined, 'var name guard')
 await fails('POST', '/matlab/api/var', { name: 'probeVar', text: 'not matlab(' }, 'var write syntax error')
 
+// --- change probe used by the panel's refresh loop ---------------------
+const before = await ok('GET', '/matlab/api/stat?path=matlab/route_demo.m', undefined, 'stat before')
+assert.equal(before.exists, true)
+assert.equal(typeof before.mtimeMs, 'number')
+await new Promise((resolve) => setTimeout(resolve, 20))
+await writeFile(join(root, 'matlab', 'route_demo.m'), 'x = 5;\n', 'utf8')
+const after = await ok('GET', '/matlab/api/stat?path=matlab/route_demo.m', undefined, 'stat after')
+assert.ok(after.mtimeMs > before.mtimeMs, 'mtime moves after an outside edit')
+const reread = await ok('GET', '/matlab/api/script?path=matlab/route_demo.m', undefined, 'reread changed file')
+assert.equal(reread.code.trim(), 'x = 5;')
+assert.equal(typeof reread.mtimeMs, 'number', 'readScript reports its mtime')
+await fails('GET', '/matlab/api/stat?path=/etc/hosts', undefined, 'stat outside the roots')
+
 // --- extra folders mounted in the tree ---------------------------------
 const extraDir = join(root, 'extra-folder')
 await mkdir(extraDir, { recursive: true })

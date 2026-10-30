@@ -185,11 +185,11 @@ on first boot with the paths this machine actually uses:
   "warmFigures": false,
   "autoSave": true,
   "autoDetect": true,
-  "matlabPath": "/Applications/MATLAB_R2026a.app/bin/matlab",
+  "matlabPath": "/path/to/MATLAB/bin/matlab",
   "sessionArgs": ["-nodesktop", "-nosplash"],
   "extraArgs": ["-nodisplay", "-nosplash"],
-  "workdir": "/Users/dingmeichen/Documents/deepseek-harness/default-workspace",
-  "scriptDir": "/Users/dingmeichen/Documents/deepseek-harness/default-workspace/matlab",
+  "workdir": "~/your-project",
+  "scriptDir": "~/your-project/matlab",
   "timeoutMs": 600000,
   "env": {}
 }
