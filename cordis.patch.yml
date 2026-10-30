@@ -1,0 +1,7 @@
+# dsh-matlab-runner bundle patch — inserts one dual-face plugin row into the
+# desktop profile roster. The node half (exports ".") owns the host-side MATLAB
+# spawn + /matlab/api/* routes; the dsh.client declaration in package.json makes
+# the browser half (exports "./client") load into the web GUI's right sidebar.
+- insert:
+    - id: ui-matlab-runner
+      name: dsh-matlab-runner

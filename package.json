@@ -1,0 +1,64 @@
+{
+  "name": "dsh-matlab-runner",
+  "version": "0.2.0",
+  "description": "MATLAB in the DeepSeek Harness sidebar: a VS Code-like .m editor with a persistent MATLAB session (figures really open), file tree with extra folder mounts, live workspace variables, .mlx preview, and an agent-facing matlab_run tool.",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-slots",
+        "@deepseek-ai/dsh-client-ui-sidebar-right",
+        "@deepseek-ai/dsh-client-ui-primitives"
+      ],
+      "platform": "web"
+    }
+  },
+  "files": [
+    "lib",
+    "bin",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "matlab",
+    "octave",
+    "sidebar",
+    "editor",
+    "runner",
+    "figure"
+  ],
+  "homepage": "https://github.com/dingmeichen/dsh-matlab-runner#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dingmeichen/dsh-matlab-runner.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dingmeichen/dsh-matlab-runner/issues"
+  },
+  "author": "dingmeichen",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node test/host-unit.mjs && node test/client-smoke.mjs && node test/client-render.mjs && node test/client-tokenize.mjs && node test/livemd.mjs",
+    "test:matlab": "node test/host-apply.mjs",
+    "test:session": "node test/session.mjs",
+    "preview": "node bin/preview-ui.mjs",
+    "check": "node bin/check.mjs"
+  }
+}

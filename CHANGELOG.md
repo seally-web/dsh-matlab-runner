@@ -1,0 +1,24 @@
+# Changelog
+
+## 0.2.0 — 2026-10-30
+
+- **Multiple folders**: the tree header has a folder picker plus `＋` to mount any
+  absolute path (`~` supported) as an extra root, like MATLAB's add-to-path list.
+  Mounts persist in `matlab-runner.json` (`extraRoots`) and can be removed from
+  the same row.
+- **Variable editor**: double-click a row in the workspace panel to read the
+  variable and assign a new literal back with `evalin('base', ...)`.
+- **VS Code-style layout**: grouped toolbar, settings as labelled sections,
+  variables merged under the tree with its own splitter, breadcrumb with the
+  current folder, console header + status bar, remembered panel toggles.
+- Sidebar header now shrinks with the panel instead of overflowing.
+- Values column in the variables panel (`mat2str` / `evalc('disp')`).
+- Tests: `host-apply` covers the variable routes and folder mounts.
+
+## 0.1.0 — 2026-10-30
+
+- First working plugin: `matlab_run` agent tool, right-sidebar page tab with
+  editor, gutter and syntax highlighting, persistent MATLAB session (figures
+  open), `batch` fallback, run/stop/save, streaming console, figure thumbnails,
+  `.mlx` read-only preview, autosave, workspace auto-detection and path errors
+  that name the current workspace.
