@@ -22,6 +22,16 @@ Two halves in one package:
 | Host | `lib/index.js`, `lib/runner.js` | Owns the persistent MATLAB session and the run registry, serves `/matlab/api/*`, and registers the `matlab_run` agent tool. |
 | Browser | `lib/client.js` | A page-type sidebar tab (editor, gutter, script picker, Run/Stop/Save, live console, figure previews, settings) plus a guide card and the `matlab-runner.open` shortcut. |
 
+![The panel](docs/panel.png)
+
+*A real run: file tree + variables on the left, editor in the middle, live console
+below, exported figures as thumbnails. Dividers resize the tree, the variables pane
+and the console; settings are one click away.*
+
+| Settings | Narrow sidebar |
+| --- | --- |
+| ![Settings](docs/settings.png) | ![Narrow](docs/narrow.png) |
+
 ## Two run modes
 
 - **`session` (default)** — one long-lived `matlab -nodesktop -nosplash` process
