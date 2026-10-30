@@ -1,0 +1,33 @@
+name: publish
+
+# Publishes to npm from CI. Works with 2FA-enabled accounts because it
+# authenticates with a granular access token that has "bypass 2FA" enabled.
+#
+# Setup (once):
+#   1. https://www.npmjs.com/settings/seally-web/tokens  ->  Generate New Token
+#      ->  Granular Access Token  ->  Read and write  ->  check "Bypass 2FA"
+#   2. GitHub repo  ->  Settings  ->  Secrets and variables  ->  Actions
+#      ->  New repository secret  ->  name NPM_TOKEN, value npm_...
+#
+# Then publish: bump the version, tag it, push the tag.
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: https://registry.npmjs.org
+      - run: npm test
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
