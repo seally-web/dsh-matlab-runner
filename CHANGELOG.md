@@ -1,5 +1,7 @@
 # Changelog
 
+## Unreleased
+
 ## 0.2.0 — 2026-10-30
 
 - **Multiple folders**: the tree header has a folder picker plus `＋` to mount any

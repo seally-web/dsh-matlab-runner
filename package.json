@@ -42,15 +42,19 @@
     "runner",
     "figure"
   ],
-  "homepage": "https://github.com/dingmeichen/dsh-matlab-runner#readme",
+  "homepage": "https://github.com/seally-web/dsh-matlab-runner#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dingmeichen/dsh-matlab-runner.git"
+    "url": "git+https://github.com/seally-web/dsh-matlab-runner.git"
   },
   "bugs": {
-    "url": "https://github.com/dingmeichen/dsh-matlab-runner/issues"
+    "url": "https://github.com/seally-web/dsh-matlab-runner/issues"
   },
-  "author": "dingmeichen",
+  "author": {
+    "name": "seally-web",
+    "email": "18306498222@163.com",
+    "url": "https://github.com/seally-web"
+  },
   "engines": {
     "node": ">=20"
   },
@@ -59,6 +63,11 @@
     "test:matlab": "node test/host-apply.mjs",
     "test:session": "node test/session.mjs",
     "preview": "node bin/preview-ui.mjs",
-    "check": "node bin/check.mjs"
+    "check": "node bin/check.mjs",
+    "prepublishOnly": "npm test"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   }
 }

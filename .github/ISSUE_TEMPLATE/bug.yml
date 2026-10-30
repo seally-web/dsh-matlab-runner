@@ -1,0 +1,42 @@
+name: Bug report
+description: Something in the panel or the runner is wrong
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks! MATLAB-dependent bugs are easiest to fix with the numbers below.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected, what you got.
+    validations:
+      required: true
+  - type: input
+    id: matlab
+    attributes:
+      label: MATLAB version
+      placeholder: "e.g. 26.1.0.3251617 (R2026a) Update 2"
+  - type: input
+    id: dsh
+    attributes:
+      label: DSH version and platform
+      placeholder: "e.g. desktop 0.2.1-rc.3, macOS 26 arm64"
+  - type: input
+    id: mode
+    attributes:
+      label: Run mode
+      placeholder: "session / batch"
+  - type: textarea
+    id: console
+    attributes:
+      label: Console output
+      description: Copy the panel console, including the exit code line.
+      render: text
+  - type: textarea
+    id: config
+    attributes:
+      label: Config (optional)
+      description: "`~/.dsh/matlab-runner.json` — redact personal paths if you like."
+      render: json

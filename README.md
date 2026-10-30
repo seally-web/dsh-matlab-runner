@@ -1,5 +1,9 @@
 # dsh-matlab-runner
 
+[![npm](https://img.shields.io/npm/v/dsh-matlab-runner.svg)](https://www.npmjs.com/package/dsh-matlab-runner)
+[![license: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![dsh-plugin](https://img.shields.io/badge/dsh-plugin-blue.svg)](https://awesome-dsh-plugin.com/)
+
 A DeepSeek Harness plugin that puts a VS Code–shaped MATLAB panel in the right
 sidebar: edit `.m` code, press **⌘/Ctrl+Enter**, watch the console, open figures
 inline, keep a warm MATLAB session between runs, browse several folders like
@@ -294,4 +298,4 @@ spawn path the app uses, which only exists outside the sandbox.
 
 ## License
 
-MIT © 2026 dingmeichen
+MIT © 2026 seally-web
