@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+## 0.2.2 — 2026-10-30
+
+- Refresh loop no longer overwrites unsaved work: a buffer restored from
+  localStorage is compared against the text **on disk**, not against itself.
+- Manual Save (⌘S / 保存) now moves the change baseline too, so a save followed
+  by an outside edit still reloads correctly.
+
 ## 0.2.1 — 2026-10-30
 
 - **External edits flow back into the panel.** The script picker and file tree
