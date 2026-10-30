@@ -28,6 +28,9 @@ jobs:
           node-version: 22
           registry-url: https://registry.npmjs.org
       - run: npm test
+      # npm may stage the first publish of a new name (placeholder 0.0.0-stage);
+      # a maintainer then approves it with 2FA: `npm stage approve <stage-id>`.
+      # For routine releases this step publishes directly, no approval needed.
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

@@ -54,3 +54,25 @@ npm pack --pack-destination dist
 npm deprecate dsh-matlab-runner@0.2.1 "use 0.2.0, panels fail to boot"
 npm version patch && npm publish
 ```
+
+## Publishing with 2FA / staged publishing
+
+npm accounts with 2FA cannot publish with a plain login token. Use a
+**Granular Access Token** with *Read and write* and *Bypass two-factor
+authentication* (https://www.npmjs.com/settings/seally-web/tokens).
+
+npm may route the first publish of a brand-new name through its
+**staged publishing** flow: the registry creates a public placeholder version
+`0.0.0-stage` ("Temporary package placeholder for staged publishing") and the
+real version becomes installable a few minutes later. Do **not** assume failure
+from an immediate `npm view` 404 — check
+`https://registry.npmjs.org/<name>` instead. If the version is genuinely waiting
+for approval, run:
+
+```sh
+npm stage list                         # needs npm >= 11.15
+npm stage approve <stage-id>           # prompts for a 2FA code
+```
+
+`dsh-matlab-runner@0.2.0` went live this way on 2026-10-30 (placeholder
+`0.0.0-stage` stays in the version list; `latest` points at the real version).
