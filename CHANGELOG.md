@@ -2,6 +2,15 @@
 
 ## Unreleased
 
+## 0.2.3
+
+### Fixed
+- Host half no longer imports `@deepseek-ai/dsh-tools`. On dsh 0.2.2 that
+  package is not resolvable from a profile install, so the host module failed to
+  import and the whole plugin silently disappeared (no sidebar tab, no
+  `/matlab/api/*` routes, no `matlab_run` tool). The tool definition is a plain
+  object now — which is all the tools service registers.
+
 ## 0.2.2 — 2026-10-30
 
 - Refresh loop no longer overwrites unsaved work: a buffer restored from

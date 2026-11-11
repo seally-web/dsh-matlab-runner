@@ -1,6 +1,6 @@
 {
   "name": "dsh-matlab-runner",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "MATLAB in the DeepSeek Harness sidebar: a VS Code-like .m editor with a persistent MATLAB session (figures really open), file tree with extra folder mounts, live workspace variables, .mlx preview, and an agent-facing matlab_run tool.",
   "type": "module",
   "main": "lib/index.js",
@@ -59,7 +59,7 @@
     "node": ">=20"
   },
   "scripts": {
-    "test": "node test/host-unit.mjs && node test/client-smoke.mjs && node test/client-render.mjs && node test/client-tokenize.mjs && node test/livemd.mjs",
+    "test": "node test/import.mjs && node test/host-unit.mjs && node test/client-smoke.mjs && node test/client-render.mjs && node test/client-tokenize.mjs && node test/livemd.mjs && node test/host-apply.mjs",
     "test:matlab": "node test/host-apply.mjs",
     "test:session": "node test/session.mjs",
     "preview": "node bin/preview-ui.mjs",
