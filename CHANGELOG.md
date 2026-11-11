@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+## 0.2.4
+
+(npm could not publish 0.2.3 — it stayed in a staged state that the registry lists as empty; 0.2.4 carries the same fix.)
+
 ## 0.2.3
 
 ### Fixed
